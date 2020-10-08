@@ -1,0 +1,88 @@
+﻿# Rime schema
+# vim: set sw=2 sts=2 et:
+# encoding: utf-8
+
+schema:
+  schema_id: arabic_zhihu
+  name: "阿拉伯字母知乎"
+  version: "20201008"
+  author:
+    - polyhedron<biopolyhedron@gmail.com>
+  description: |
+    形碼原則，qwerty鍵盤，因知乎過濾阿拉伯字母，將可連寫變形的通常用的U+0600~06FF區的阿拉伯字母替換爲U+FB00以後的獨形、尾形、首形和中形。
+    正常的阿拉伯語國際輸入法請用 arabic.dict.yaml 和 arabic.schema.yaml。
+    因爲阿拉伯字母標記多種多樣，目前知乎版只先做了阿拉伯語、波斯語和維吾爾語的部分。
+    對於可前連或後連的字母，默認爲中形，前或後加'`'爲不連形，如 ﺱ - `s`, ﺲ - s`, ﺳ - `s, ﺴ - s；
+    對於不可後連的字母，默認爲尾形，前加'`'爲獨形，如 ﺩ - `d, ﺪ - d；
+    在輸入詞語時，在有斷的地方輸入一個'`'即可，如 ﺃﻛﺒﺮ - a'`kbr。
+    非連寫的符号（數字、標點符号等）在知乎被過濾的問題暫無解。
+    具體的編碼見 arabic_zhihu.dict.yaml 文件。
+    大體記憶方式：
+    字母性上標（或取消上標）以'/'先導，如 ﺨ - H/.；
+    字母性下標（或取消下標）以'\\'先導，如 ﺈ - a\'；
+    雙橫點上標直接寫'"'，如 ﺔ - h"；
+    hamza上標直接寫'\''，如 ﺆ - w'；
+    三點上標直接寫'^'，如 ﺸ - s^；
+    alif madda ﺂ 直接寫'a~'；
+    向下三點上下標寫/c或\c，如 ﭙ - b\c；
+    hamza及阿拉伯系一些符号（如分号؛）以'v'先導。
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 阿拉伯知乎, 西文 ]
+
+engine:
+  processors:
+    - ascii_composer
+    - speller
+    - selector
+    - punctuator  # 先於 editor 才會使空格作符號上屏
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator
+
+menu:
+  alternative_select_keys: "123456789"
+
+speller:
+  alphabet: 'abcdefghijklmnopqrstuvwxyzACDEGHIKNOSTUWXY;!"#$%^()''`,-.<=>*/\~'
+  delimiter: ''
+  auto_select: true
+
+translator:
+  dictionary: arabic_zhihu
+  enable_user_dict: false
+  enable_sentence: true
+  comment_format:
+    - xform/^~(.*)$/$1/
+
+punctuator:  # 只須定義空格一個符號
+  use_space: true
+  half_shape: &punct
+    ' ' : { commit: ' ' }
+    "1": "١"
+    "2": "٢"
+    "3": "٣"
+    "4": "٤"
+    "5": "٥"
+    "6": "٦"
+    "7": "٧"
+    "8": "٨"
+    "9": "٩"
+    "0": "٠"
+    "_": "ـ"
+    "{": "{"
+    "}": "}"
+    "[": "["
+    "]": "]"
+    "?": "؟"
+#  full_shape: *punct
+

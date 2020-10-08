@@ -13,7 +13,7 @@
 
 ---
 name: arabic
-version: "20161125"
+version: "20201008"
 sort: original
 ...
 
@@ -199,7 +199,7 @@ $	$
 ڇ	c\#
 ح	H
 ځ	H'
-ڂ	h/:
+ڂ	H/:
 ݗ	H"
 څ	H^
 ݘ	H\^
@@ -365,8 +365,8 @@ $	$
 ێ	y/v
 ۑ	y\c
 ے	Y
-ی	i"
-ی	y"
+ی	i\"
+ی	y\"
 ؽ	y/^
 ؾ	y"
 ؿ	y^
