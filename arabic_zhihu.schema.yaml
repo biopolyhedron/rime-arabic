@@ -5,7 +5,7 @@
 schema:
   schema_id: arabic_zhihu
   name: "阿拉伯字母知乎"
-  version: "20201008"
+  version: "20240921"
   author:
     - polyhedron<biopolyhedron@gmail.com>
   description: |
@@ -18,8 +18,9 @@ schema:
     非連寫的符号（數字、標點符号等）在知乎被過濾的問題暫無解。
     具體的編碼見 arabic_zhihu.dict.yaml 文件。
     大體記憶方式：
-    字母性上標（或取消上標）以'/'先導，如 ﺨ - H/.；
+    字母性上標（或取消上標）以'/'先導，如 ﯚ - w/v ；
     字母性下標（或取消下標）以'\\'先導，如 ﺈ - a\'；
+    單點上標直接寫'.'，如 ﻀ - S.；
     雙橫點上標直接寫'"'，如 ﺔ - h"；
     hamza上標直接寫'\''，如 ﺆ - w'；
     三點上標直接寫'^'，如 ﺸ - s^；

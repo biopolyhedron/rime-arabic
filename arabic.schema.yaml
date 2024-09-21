@@ -34,7 +34,7 @@ engine:
   processors:
     - ascii_composer
     - speller
-    - selector
+    - selector  # 有特殊數字時selector要在punctuator前
     - punctuator  # 先於 editor 才會使空格作符號上屏
     - navigator
     - express_editor

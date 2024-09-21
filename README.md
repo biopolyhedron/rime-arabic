@@ -3,6 +3,7 @@ arabic.schema.yaml和arabic.dict.yaml爲rime阿拉伯字母國際鍵盤
 形碼原則，qwerty鍵盤。  
 字母性上標（或取消上標）以'/'先導；  
 字母性下標（或取消下標）以'\\'先導；  
+單點上標直接寫'.'；  
 雙橫點上標直接寫'"'；  
 hamza上標直接寫'\''；  
 三點上標直接寫'^'；  
@@ -31,7 +32,7 @@ alslam Elykm.
 اَلسَّلَامُ عَلَيْكُمْ.   
 aAlsWAlAamU EAlAyOkUmO.  
 ياخشمۇسىز.  
-yaH/.s^imusiz.  
+yaH.s^imusiz.  
 
 （阿拉伯字母知乎）
 ﺍﻟﺴﻼﻡ ﻋﻠﻴﻜﻢ.
